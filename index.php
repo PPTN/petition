@@ -62,10 +62,10 @@ font-size: 300%;
 قانون 52
 </h2>
 <h1>
- وقيت باش المقاربة تتبدل!
+ وقيّت باش المقاربة تتبدّل!
 </h1>
 <p>
-من 1992 قرابة 120.000 مواطن و عايلاتهم شافو حياتهم تدمرت في جرة سيڤارو زطلة. برشا شباب مستقبلهم مشا, بطاقة عدد 3 تمسخط, بطلو قرايتهم, خسرو خدمهم, من ناس عادية لقاو رواحهم عايشين مع المجرمة و الإرهابيين. هذا لكل في جرة قانون ظالم, حطو نظام بن علي باش يستعملو كأداة لقمع كل من تجرا ووقف في وجهو. قانون بطبيعتو لا دستوري خاصة في تونس ما بعد الثورة, تونس الجمهورية الثانية, تونس القرن 21.
+من 1992 قرابة 120.000 مواطن و عايلاتهم شافو حياتهم تدمرت في جرة سيڤارو زطلة. برشا شباب مستقبلهم مشا, بطاقة عدد 3 تمسخت, بطلو قرايتهم, خسرو خدمهم, من ناس عادية لقاو رواحهم عايشين مع المجرمة و الإرهابيين. هذا لكل في جرة قانون ظالم, حطو نظام بن علي باش يستعملو كأداة لقمع كل من تجرا ووقف في وجهو. قانون بطبيعتو لا دستوري خاصة في تونس ما بعد الثورة, تونس الجمهورية الثانية, تونس القرن 21.
 </p>
 <p>
 قانون 52 ما حل حتى مشكل ادعى انو باش يحلو, بل بالعكس ملي تحط نسب استهلاك المخدرات ماشية و تزيد, خاصة عند المراهقين, و مسالك الترويج ماشية و تكبر. القانون هذا مسيطرة عليه المقاربة القمعية المسلطة على المستهلك في عوض ما تركز على آفة التهريب و منظومة الإجرام اللي تمولها.
@@ -131,7 +131,8 @@ font-size: 300%;
 		</form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"> بطّلت </button>
+	<div class="message"></div>
+        <button type="button" class="btn btn-default" data-dismiss="modal"> أخرج </button>
         <button id="btn_signer" type="button" class="btn btn-primary">سجّل</button>
       </div>
     </div><!-- /.modal-content -->
@@ -152,7 +153,7 @@ font-size: 300%;
 </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">بطّلت</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">أخرج</button>
         <button type="button" id="btn_verif" class="btn btn-primary">ثبّت</button>
       </div>
     </div><!-- /.modal-content -->
@@ -171,7 +172,7 @@ $('#btn_verif').click(function (e) {
 				if (signature.id) {
 					$('#verifier .modal-body').html('<div class="alert alert-success" role="alert" dir="rtl">مرحبا بك '+signature.nom+'. تصحاحتك موجودة</div>');
 				} else {
-					$('#verifier .modal-body').html('<div class="alert alert-error" role="alert" dir="rtl">مرحبا بك '+$('#cin_verif').val()+'. تصحاحتك موجودة</div>');
+					$('#verifier .modal-body').html('<div class="alert alert-danger" role="alert" dir="rtl">تصحاحتك مش موجودة</div>');
 				}
 			}
 		});
@@ -188,18 +189,18 @@ $('#btn_signer').click(function (e) {
 				profession: $('#profession').val()
 			},
 			complete: function (data,status,xhr) {
-				$('#signer .modal-body').html('<div class="alert alert-success" role="alert" dir="rtl">سجلناك! تفقد الميل بش يجيك رابط لتأكيد العنوان</div>');
+				$('#signer .modal-body').html('<div class="alert alert-success" role="alert" dir="rtl">سجلنا تصحاحتك. شكرا على المساندة</div>');
 			}
 		});
 	}
 	else {
-		$('').html('<div class="alert alert-danger" role="alert" dir="rtl">هنالك خطأ في البريد الإلكتروني ، نرجو التثبت في صحة المعطيات</div>');
+		$('#signer .modal-footer .message').html('<div class="alert alert-danger" role="alert" dir="rtl">رقم بطاقة التعريف ما يضهرش صحيح </div>');
 		$('#cin').focus();
 	}
 });
 	
 function estCIN(cin) {
-	return true;
+	return (cin.length == 8);
 };
 
 function hash(chaine) {
