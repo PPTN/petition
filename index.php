@@ -153,6 +153,7 @@ font-size: 300%;
 </form>
       </div>
       <div class="modal-footer">
+	<div class="message"></div>
         <button type="button" class="btn btn-default" data-dismiss="modal">أخرج</button>
         <button type="button" id="btn_verif" class="btn btn-primary">ثبّت</button>
       </div>
@@ -176,7 +177,11 @@ $('#btn_verif').click(function (e) {
 				}
 			}
 		});
-	};
+	}
+	else {
+		$('#verifier .modal-footer .message').html('<div class="alert alert-danger" role="alert" dir="rtl">رقم بطاقة التعريف ما يضهرش صحيح </div>');
+		$('#cin').focus();
+	}
 });
 $('#btn_signer').click(function (e) {
 	if (estCIN($('#cin').val())) {
