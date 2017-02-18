@@ -1,4 +1,5 @@
 <?php
+define('SALT',$_SERVER['SERVER_NAME'].__DIR__); // Pour le Chiffrement de CIN
 $DB = new PDO('sqlite:db/petition.sqlite3');
 	if ($_POST && $_POST['id']) {
 		die(json_encode(ajouterSignature($_POST)));
@@ -209,7 +210,8 @@ function estCIN(cin) {
 };
 
 function hash(chaine) {
-	return sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(chaine));
+	var salt = '<?php print SALT ?>';
+	return sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(chaine+salt));
 }
 </script>
 
