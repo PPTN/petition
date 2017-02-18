@@ -46,11 +46,11 @@ font-size: 300%;
     font-family: 'Aref Ruqaa', serif;
 }
 #texte h1 {
-    font-size: 300%;
+    font-size: 200%;
     padding-bottom: 30px;
 }
 .btn {
-    font-size: 200%;
+    font-size: 150%;
     height: 300%;
 }
 
@@ -116,8 +116,8 @@ font-size: 300%;
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>&nbsp;
-        <h4 class="modal-title">صحّح</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title col-sm-7">صحّح</h4>
       </div>
       <div class="modal-body">
         <p></p>
@@ -143,7 +143,7 @@ font-size: 300%;
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">ثبّت</h4>
+        <h4 class="modal-title col-sm-7">ثبّت</h4>
       </div>
       <div class="modal-body">
 <form>
@@ -168,7 +168,11 @@ $('#btn_verif').click(function (e) {
 			data: { id: id },
 			complete: function (data,status,xhr) {
 				var signature = JSON.parse(data.responseText);
-				$('#verifier .modal-body').html('<div class="alert alert-success" role="alert" dir="rtl">مرحبا بك '+signature.nom+'. تصحاحتك موجودة</div>');
+				if (signature.id) {
+					$('#verifier .modal-body').html('<div class="alert alert-success" role="alert" dir="rtl">مرحبا بك '+signature.nom+'. تصحاحتك موجودة</div>');
+				} else {
+					$('#verifier .modal-body').html('<div class="alert alert-error" role="alert" dir="rtl">مرحبا بك '+$('#cin_verif').val()+'. تصحاحتك موجودة</div>');
+				}
 			}
 		});
 	};
