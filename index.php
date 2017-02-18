@@ -84,11 +84,8 @@ font-size: 300%;
 عن طريق هته العريضة نستنجد عقلانية الحكومة و نواب الشعب و نطلب منهم اتخاذ مقاربة تقدمية, ناجعة, تتماشى مع مبادئ الديمقراطية و المواطنة بعيدا عن الإحكام المسبقة.
 
 </p>
+</div>
 
-
-</div class="container">
-<div>
-<p>
 <form>
 <div class="col-sm-8">
 <button class="btn form-control" type="button" data-toggle="modal" data-target="#verifier">
@@ -101,8 +98,6 @@ font-size: 300%;
 </button>
 </div>
 </form>
-</p>
-</div>
 
     <script src="sjcl.js"></script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
